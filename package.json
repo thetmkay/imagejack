@@ -1,0 +1,23 @@
+{
+  "name": "imagejack",
+  "version": "0.0.0",
+  "description": "Rip images from HTML",
+  "main": "imagejack.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/thetmkay/imagejack.git"
+  },
+  "author": "thetmkay",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thetmkay/imagejack/issues"
+  },
+  "homepage": "https://github.com/thetmkay/imagejack",
+  "dependencies": {
+    "cheerio": "^0.16.0",
+    "request": "^2.36.0"
+  }
+}
