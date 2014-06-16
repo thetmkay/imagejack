@@ -18,6 +18,7 @@
   "homepage": "https://github.com/thetmkay/imagejack",
   "dependencies": {
     "cheerio": "^0.16.0",
-    "request": "^2.36.0"
+    "request": "^2.36.0",
+    "save-to": "^1.0.3"
   }
 }

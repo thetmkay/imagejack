@@ -5,7 +5,8 @@
 var fs = require('fs'),
     http = require('http'),
     path = require('path'),
-    url = require('url');
+    url = require('url'),
+    saveTo = require('save-to');
 
 console.log('Beginning to optimize images...');
 
@@ -137,7 +138,7 @@ function processAllFiles() {
 
     function gotResponse(data) {
       data = JSON.parse(data);
-
+      console.log(data);
       // If there is no destination, the image is optimized fully
       if (!data.dest) {
         smush();
@@ -157,19 +158,10 @@ function processAllFiles() {
         path: urlParts.pathname
       }, function(res){
 
-        var imagedata = ''
-        res.setEncoding('binary')
-
-        res.on('data', function(chunk){
-            imagedata += chunk
-        })
-
-        res.on('end', function(){
-          fs.writeFile(currFile[0] + currFile[1], imagedata, 'binary', function(err){
-            if (err) console.log(err)
+        saveTo(res, currFile[0] + currFile[1], function(err, desintation){
+            if (err) console.error(err)
             console.log('Smush complete! Total saved so far: ' + totalSaved)
-            smush()
-          })
+            // smush()
         })
       });
     }
